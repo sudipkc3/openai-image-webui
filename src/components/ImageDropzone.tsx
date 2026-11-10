@@ -84,23 +84,23 @@ export function ImageDropzone({
           : `rounded-xl border p-3 transition ${
               hasImages
                 ? "border-emerald-300 bg-emerald-50/60"
-                : "border-slate-200 bg-slate-50/70"
+                : "border-slate-200 bg-slate-50/70 dark:border-slate-600 dark:bg-slate-900/70"
             }`
       }
       onDrop={onDrop}
       onDragOver={onDragOver}
     >
       <div className="flex items-center justify-between">
-        <p className="text-xs font-medium text-slate-600">{title}</p>
+        <p className="text-xs font-medium text-slate-600 dark:text-slate-300">{title}</p>
         {badge ? <span className={BADGE_CLASS[accent]}>{badge}</span> : null}
       </div>
-      <p className="mt-1 text-xs text-slate-500">{hint}</p>
+      <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{hint}</p>
 
       <div className="mt-2 flex flex-wrap gap-2">
         {images.map((item) => (
           <div
             key={item.id}
-            className="group relative h-20 w-20 overflow-hidden rounded-lg border border-slate-200 bg-white"
+            className="group relative h-20 w-20 overflow-hidden rounded-lg border border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-900"
             title={`${item.file.name} · ${item.width}×${item.height}`}
           >
             <img src={item.previewUrl} alt={item.file.name} className="h-full w-full object-cover" />
@@ -119,7 +119,7 @@ export function ImageDropzone({
 
         <button
           type="button"
-          className={`flex h-20 w-20 items-center justify-center rounded-lg border border-dashed border-slate-300 bg-white text-xs font-medium text-slate-500 transition ${ADD_BUTTON_HOVER[accent]}`}
+          className={`flex h-20 w-20 items-center justify-center rounded-lg border border-dashed border-slate-300 bg-white text-xs font-medium text-slate-500 transition dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300 ${ADD_BUTTON_HOVER[accent]}`}
           onClick={() => fileInputRef.current?.click()}
         >
           + {addButtonLabel}

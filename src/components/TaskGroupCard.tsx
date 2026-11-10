@@ -16,9 +16,9 @@ interface TaskGroupCardProps {
 }
 
 const buttonClass =
-  "rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50";
+  "rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700";
 const tileButtonClass =
-  "rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50";
+  "rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700";
 
 function aspectRatioOf(size: string) {
   const match = /^(\d+)x(\d+)$/.exec(size);
@@ -60,7 +60,7 @@ export const TaskGroupCard = memo(function TaskGroupCard({
   }
 
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    <article className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800">
       <div className="mb-2 flex flex-wrap items-center gap-2 text-xs text-slate-400">
         <span
           className={`rounded-full px-2.5 py-1 font-semibold ring-1 ${
@@ -88,7 +88,7 @@ export const TaskGroupCard = memo(function TaskGroupCard({
           return (
             <div key={task.id} className="flex flex-col gap-1.5">
               <div
-                className="relative overflow-hidden rounded-xl bg-slate-100"
+                className="relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900"
                 style={{ aspectRatio: aspectRatioOf(task.size) }}
               >
                 {task.imageUrl ? (

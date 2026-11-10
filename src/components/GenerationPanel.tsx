@@ -308,7 +308,7 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
     form.inputImages.length > 1 && !!model && !supportsMultiImage;
 
   return (
-    <section className="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-soft backdrop-blur">
+    <section className="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-soft backdrop-blur dark:border-slate-700 dark:bg-slate-800">
       <div className="mb-5">
         <h2 className="text-lg font-semibold text-slate-950">{t("generation.title")}</h2>
         <p className="mt-1 text-sm text-slate-500">{t("generation.subtitle")}</p>
@@ -320,7 +320,7 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
             {t("generation.prompt")}
           </span>
           <textarea
-            className="min-h-32 w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+            className="min-h-32 w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-sky-900"
             placeholder={t("generation.promptPlaceholder")}
             value={form.prompt}
             onChange={(event) => onChange({ prompt: event.target.value })}
@@ -355,7 +355,7 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
                 </button>
                 {form.maskImage ? (
                   <div
-                    className="group relative h-20 w-20 overflow-hidden rounded-lg border border-slate-200 bg-white"
+                    className="group relative h-20 w-20 overflow-hidden rounded-lg border border-slate-200 bg-white dark:border-slate-600 dark:bg-slate-900"
                     title={`${form.maskImage.file.name} · ${form.maskImage.width}×${form.maskImage.height}`}
                   >
                     <img
@@ -375,7 +375,7 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
                   <>
                     <button
                       type="button"
-                      className="flex h-20 w-20 items-center justify-center rounded-lg border border-dashed border-slate-300 bg-white text-xs font-medium text-slate-500 transition hover:border-sky-400 hover:text-sky-600"
+                      className="flex h-20 w-20 items-center justify-center rounded-lg border border-dashed border-slate-300 bg-white text-xs font-medium text-slate-500 transition hover:border-sky-400 hover:text-sky-600 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300"
                       onClick={() => maskFileInputRef.current?.click()}
                     >
                       + {t("generation.inputImages.addMaskButton")}
@@ -409,7 +409,7 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
             {t("generation.imageCount")}
           </span>
           <input
-            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:focus:ring-sky-900"
             type="number"
             min={1}
             max={20}
@@ -419,7 +419,7 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
         </label>
 
         {/* --- Size section --- */}
-        <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-3 space-y-3">
+        <div className="space-y-3 rounded-xl border border-slate-200 bg-slate-50/70 p-3 dark:border-slate-600 dark:bg-slate-900/70">
           <div>
             <p className="text-sm font-medium text-slate-700">{t("generation.size")}</p>
             <p className="mt-0.5 text-xs text-slate-500">
@@ -437,7 +437,7 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
             <label className="block">
               <span className="mb-1 block text-xs font-medium text-slate-600">{t("generation.widthPixels")}</span>
               <input
-                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm tabular-nums outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm tabular-nums outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:focus:ring-sky-900"
                 type="number"
                 min={MIN_SIZE}
                 max={MAX_SIZE}
@@ -463,7 +463,7 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
             <label className="block">
               <span className="mb-1 block text-xs font-medium text-slate-600">{t("generation.heightPixels")}</span>
               <input
-                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm tabular-nums outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm tabular-nums outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:focus:ring-sky-900"
                 type="number"
                 min={MIN_SIZE}
                 max={MAX_SIZE}
@@ -552,7 +552,7 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
         </div>
 
         {/* More size options: raw "WxH" input, common sizes by ratio, recent sizes */}
-        <details className="group rounded-xl border border-slate-200 bg-slate-50/70 p-3 outline-none [&_summary::-webkit-details-marker]:hidden">
+        <details className="group rounded-xl border border-slate-200 bg-slate-50/70 p-3 outline-none dark:border-slate-600 dark:bg-slate-900/70 [&_summary::-webkit-details-marker]:hidden">
           <summary className="cursor-pointer text-xs font-medium text-slate-600 select-none flex items-center justify-between list-none focus:outline-none">
             <span>{t("generation.sizeMoreOptions")}</span>
             <span className="text-[10px] text-slate-400 group-open:rotate-180 transition-transform">▼</span>
@@ -560,7 +560,7 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
           <div className="mt-2.5 space-y-3">
             {/* Text fallback — for pasting arbitrary "WxH" */}
             <input
-              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:focus:ring-sky-900"
               placeholder={t("generation.sizePlaceholder")}
               value={form.size}
               onChange={(event) => onChange({ size: event.target.value })}
@@ -626,14 +626,14 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
         </details>
 
         {/* Advanced JSON Params */}
-        <details className="group rounded-xl border border-slate-200 bg-slate-50/70 p-3 outline-none [&_summary::-webkit-details-marker]:hidden">
+        <details className="group rounded-xl border border-slate-200 bg-slate-50/70 p-3 outline-none dark:border-slate-600 dark:bg-slate-900/70 [&_summary::-webkit-details-marker]:hidden">
           <summary className="cursor-pointer text-xs font-medium text-slate-600 select-none flex items-center justify-between list-none focus:outline-none">
             <span>{t("generation.advancedJsonParams")}</span>
             <span className="text-[10px] text-slate-400 group-open:rotate-180 transition-transform">▼</span>
           </summary>
           <div className="mt-2.5">
             <textarea
-              className="min-h-24 w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2 font-mono text-xs outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+              className="min-h-24 w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2 font-mono text-xs outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-sky-900"
               placeholder={'{\n  "quality": "high",\n  "style": "vivid"\n}'}
               value={form.advancedJson}
               onChange={(event) => onChange({ advancedJson: event.target.value })}
@@ -643,7 +643,7 @@ export const GenerationPanel = memo(function GenerationPanel({ form, error, mode
 
         {error ? <Notice variant="error">{error}</Notice> : null}
 
-        <div className="sticky bottom-0 z-10 -mx-5 -mb-5 rounded-b-3xl bg-white/95 px-5 pb-5 pt-3">
+        <div className="sticky bottom-0 z-10 -mx-5 -mb-5 rounded-b-3xl bg-white/95 px-5 pb-5 pt-3 dark:bg-slate-800/95">
           <button
             className="inline-flex w-full items-center justify-center rounded-xl bg-sky-500 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-600 disabled:cursor-not-allowed disabled:bg-slate-300"
             type="submit"

@@ -123,7 +123,7 @@ export const BatchGenerationPanel = memo(function BatchGenerationPanel({
     form.inputImages.length > 1 && !!model && !supportsMultiImage;
 
   return (
-    <section className="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-soft backdrop-blur">
+    <section className="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-soft backdrop-blur dark:border-slate-700 dark:bg-slate-800">
       <div className="mb-5">
         <h2 className="text-lg font-semibold text-slate-950">{t("batch.title")}</h2>
         <p className="mt-1 text-sm text-slate-500">{t("batch.subtitle")}</p>
@@ -131,7 +131,7 @@ export const BatchGenerationPanel = memo(function BatchGenerationPanel({
 
       <form className="space-y-4" onSubmit={handleSubmit}>
         {/* Prompt list */}
-        <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-3">
+        <div className="rounded-xl border border-slate-200 bg-slate-50/70 p-3 dark:border-slate-600 dark:bg-slate-900/70">
           <div className="flex items-center justify-between">
             <p className="text-sm font-medium text-slate-700">{t("batch.prompts.title")}</p>
             <div className="flex items-center gap-2">
@@ -161,7 +161,7 @@ export const BatchGenerationPanel = memo(function BatchGenerationPanel({
           </div>
           <p className="mt-1 text-xs text-slate-500">{t("batch.prompts.hint")}</p>
           <textarea
-            className="mt-2 min-h-40 w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2.5 font-mono text-sm outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+            className="mt-2 min-h-40 w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2.5 font-mono text-sm outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-sky-900"
             placeholder={t("batch.prompts.placeholder")}
             value={form.promptsText}
             onChange={(event) => onChange({ promptsText: event.target.value })}

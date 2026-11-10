@@ -602,13 +602,13 @@ export const ImageLibrary = memo(function ImageLibrary({ stats, onPreview, onDel
   }
 
   return (
-    <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft">
+    <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-700 dark:bg-slate-800">
       <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 className="text-lg font-semibold text-slate-950">{t("library.title")}</h2>
           <p className="mt-1 text-sm text-slate-500">{t("library.subtitle")}</p>
         </div>
-        <div className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500">
+        <div className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500 dark:bg-slate-700 dark:text-slate-300">
           {t("tasks.cache.summary", { count: stats.count, size: formatBytes(stats.size) })}
         </div>
       </div>
@@ -635,7 +635,7 @@ export const ImageLibrary = memo(function ImageLibrary({ stats, onPreview, onDel
           {!selectionMode ? (
             <button
               type="button"
-              className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+              className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
               onClick={enterSelectionMode}
             >
               {t("library.selection.enter")}
@@ -647,14 +647,14 @@ export const ImageLibrary = memo(function ImageLibrary({ stats, onPreview, onDel
               </span>
               <button
                 type="button"
-                className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+                className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                 onClick={selectAllLoaded}
               >
                 {t("library.selection.selectAll")}
               </button>
               <button
                 type="button"
-                className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:text-slate-300"
+                className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:text-slate-300 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                 disabled={selectedIds.size === 0}
                 onClick={clearSelection}
               >
@@ -672,7 +672,7 @@ export const ImageLibrary = memo(function ImageLibrary({ stats, onPreview, onDel
               </button>
               <button
                 type="button"
-                className="ml-auto rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50"
+                className="ml-auto rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                 onClick={exitSelectionMode}
               >
                 {t("library.selection.exit")}
@@ -684,7 +684,7 @@ export const ImageLibrary = memo(function ImageLibrary({ stats, onPreview, onDel
       ) : null}
 
       {items.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-6 py-14 text-center text-sm text-slate-500">
+        <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-6 py-14 text-center text-sm text-slate-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-400">
           {isLoading ? t("library.loading") : t("library.empty")}
         </div>
       ) : (
@@ -744,7 +744,7 @@ export const ImageLibrary = memo(function ImageLibrary({ stats, onPreview, onDel
             <div className="mt-5 flex justify-center">
               <button
                 type="button"
-                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:text-slate-300"
+                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:text-slate-300 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                 disabled={isLoading}
                 onClick={() => void handleLoadMore()}
               >

@@ -17,11 +17,11 @@ interface TaskCardProps {
 }
 
 export const statusStyles: Record<ImageTask["status"], string> = {
-  pending: "bg-slate-100 text-slate-700 ring-slate-200",
-  running: "bg-sky-100 text-sky-700 ring-sky-200",
-  success: "bg-emerald-100 text-emerald-700 ring-emerald-200",
-  error: "bg-rose-100 text-rose-700 ring-rose-200",
-  cancelled: "bg-amber-100 text-amber-700 ring-amber-200",
+  pending: "bg-slate-100 text-slate-700 ring-slate-200 dark:bg-slate-700 dark:text-slate-200 dark:ring-slate-600",
+  running: "bg-sky-100 text-sky-700 ring-sky-200 dark:bg-sky-900/60 dark:text-sky-200 dark:ring-sky-700",
+  success: "bg-emerald-100 text-emerald-700 ring-emerald-200 dark:bg-emerald-900/60 dark:text-emerald-200 dark:ring-emerald-700",
+  error: "bg-rose-100 text-rose-700 ring-rose-200 dark:bg-rose-900/60 dark:text-rose-200 dark:ring-rose-700",
+  cancelled: "bg-amber-100 text-amber-700 ring-amber-200 dark:bg-amber-900/60 dark:text-amber-200 dark:ring-amber-700",
 };
 
 function formatElapsed(task: ImageTask) {
@@ -36,18 +36,18 @@ function formatElapsed(task: ImageTask) {
 function actionButtonClass(disabled = false) {
   return `rounded-lg border px-3 py-1.5 text-xs font-medium transition ${
     disabled
-      ? "cursor-not-allowed border-slate-100 bg-slate-50 text-slate-300"
-      : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50"
+      ? "cursor-not-allowed border-slate-100 bg-slate-50 text-slate-300 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-600"
+      : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
   }`;
 }
 
 function menuItemClass(disabled = false, danger = false) {
   return `block w-full rounded-lg px-3 py-2 text-left text-xs font-medium transition ${
     disabled
-      ? "cursor-not-allowed text-slate-300"
+      ? "cursor-not-allowed text-slate-300 dark:text-slate-600"
       : danger
         ? "text-rose-600 hover:bg-rose-50"
-        : "text-slate-600 hover:bg-slate-50"
+        : "text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-700"
   }`;
 }
 
@@ -195,9 +195,9 @@ export const TaskCard = memo(function TaskCard({ task, onPreview, onRetry, onCan
 
 
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <article className="rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
       <div className="grid gap-0 md:grid-cols-[220px_1fr]">
-        <div className="flex min-h-52 items-center justify-center overflow-hidden rounded-t-2xl bg-slate-100 md:rounded-l-2xl md:rounded-tr-none">
+        <div className="flex min-h-52 items-center justify-center overflow-hidden rounded-t-2xl bg-slate-100 dark:bg-slate-900 md:rounded-l-2xl md:rounded-tr-none">
           {isVisionTask ? (
             task.inputThumbnail ? (
               <div className="flex h-full w-full flex-col items-center justify-center gap-2 p-4">
@@ -253,7 +253,7 @@ export const TaskCard = memo(function TaskCard({ task, onPreview, onRetry, onCan
               {new Date(task.createdAt).toLocaleString()}
             </span>
             {task.imageCached ? (
-              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-500">
+              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-500 dark:bg-slate-700 dark:text-slate-300">
                 {t("tasks.cache.cachedBadge")}
               </span>
             ) : null}
@@ -262,28 +262,28 @@ export const TaskCard = memo(function TaskCard({ task, onPreview, onRetry, onCan
           <p className="mb-3 line-clamp-3 text-sm leading-6 text-slate-700">{task.prompt}</p>
 
           <dl className="mb-4 grid gap-2 text-xs text-slate-500 sm:grid-cols-3">
-            <div className="rounded-lg bg-slate-50 p-2">
+            <div className="rounded-lg bg-slate-50 p-2 dark:bg-slate-900">
               <dt className="font-medium text-slate-700">{t("tasks.fields.model")}</dt>
               <dd className="mt-1 break-all">{task.model}</dd>
             </div>
             {isVisionTask ? (
               <>
-                <div className="rounded-lg bg-slate-50 p-2">
+                <div className="rounded-lg bg-slate-50 p-2 dark:bg-slate-900">
                   <dt className="font-medium text-slate-700">{t("tasks.fields.inputImages")}</dt>
                   <dd className="mt-1">{task.inputImageCount ?? 0}</dd>
                 </div>
-                <div className="rounded-lg bg-slate-50 p-2">
+                <div className="rounded-lg bg-slate-50 p-2 dark:bg-slate-900">
                   <dt className="font-medium text-slate-700">{t("tasks.fields.detail")}</dt>
                   <dd className="mt-1">{task.visionDetail ?? "-"}</dd>
                 </div>
               </>
             ) : (
               <>
-                <div className="rounded-lg bg-slate-50 p-2">
+                <div className="rounded-lg bg-slate-50 p-2 dark:bg-slate-900">
                   <dt className="font-medium text-slate-700">{t("tasks.fields.size")}</dt>
                   <dd className="mt-1">{task.size}</dd>
                 </div>
-                <div className="rounded-lg bg-slate-50 p-2">
+                <div className="rounded-lg bg-slate-50 p-2 dark:bg-slate-900">
                   <dt className="font-medium text-slate-700">{t("tasks.fields.format")}</dt>
                   <dd className="mt-1">{task.responseFormat}</dd>
                 </div>
@@ -315,7 +315,7 @@ export const TaskCard = memo(function TaskCard({ task, onPreview, onRetry, onCan
                 </dd>
               </div>
             ) : task.status === "success" ? (
-              <div className="rounded-lg bg-slate-50 p-2">
+              <div className="rounded-lg bg-slate-50 p-2 dark:bg-slate-900">
                 <dt className="font-medium text-slate-500">{t("tasks.fields.cost")}</dt>
                 <dd className="mt-1 text-slate-500">{t("tasks.fields.costUnknown")}</dd>
               </div>
@@ -339,7 +339,7 @@ export const TaskCard = memo(function TaskCard({ task, onPreview, onRetry, onCan
           ) : null}
 
           {debugText ? (
-            <details className="mb-4 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
+            <details className="mb-4 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300">
               <summary className="cursor-pointer font-medium text-slate-700">
                 {t("tasks.debugDetails")}
               </summary>
@@ -404,7 +404,7 @@ export const TaskCard = memo(function TaskCard({ task, onPreview, onRetry, onCan
               {actionsMenuOpen ? (
                 <div
                   role="menu"
-                  className="absolute right-0 top-full z-10 mt-1 w-44 rounded-xl border border-slate-200 bg-white p-1 shadow-lg"
+                  className="absolute right-0 top-full z-10 mt-1 w-44 rounded-xl border border-slate-200 bg-white p-1 shadow-lg dark:border-slate-600 dark:bg-slate-800"
                 >
                   {isVisionTask ? (
                     <>

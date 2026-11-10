@@ -76,7 +76,7 @@ export const VisionPanel = memo(function VisionPanel({ form, error, visionModel,
   }
 
   return (
-    <section className="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-soft backdrop-blur">
+    <section className="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-soft backdrop-blur dark:border-slate-700 dark:bg-slate-800">
       <div className="mb-5">
         <h2 className="text-lg font-semibold text-slate-950">{t("vision.title")}</h2>
         <p className="mt-1 text-sm text-slate-500">{t("vision.subtitle")}</p>
@@ -104,7 +104,7 @@ export const VisionPanel = memo(function VisionPanel({ form, error, visionModel,
         <label className="block">
           <span className="mb-1.5 block text-sm font-medium text-slate-700">{t("vision.prompt")}</span>
           <textarea
-            className="min-h-28 w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-violet-400 focus:ring-4 focus:ring-violet-100"
+            className="min-h-28 w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-violet-400 focus:ring-4 focus:ring-violet-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-violet-900"
             placeholder={t("vision.promptPlaceholder")}
             value={form.prompt}
             onChange={(event) => onChange({ prompt: event.target.value })}
@@ -114,7 +114,7 @@ export const VisionPanel = memo(function VisionPanel({ form, error, visionModel,
         <label className="block">
           <span className="mb-1.5 block text-sm font-medium text-slate-700">{t("vision.detail")}</span>
           <select
-            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-400 focus:ring-4 focus:ring-violet-100"
+            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-violet-400 focus:ring-4 focus:ring-violet-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:focus:ring-violet-900"
             value={form.detail}
             onChange={(event) => onChange({ detail: event.target.value as VisionDetail })}
           >
@@ -130,7 +130,7 @@ export const VisionPanel = memo(function VisionPanel({ form, error, visionModel,
             {t("vision.advancedJsonParams")}
           </span>
           <textarea
-            className="min-h-24 w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2.5 font-mono text-sm outline-none transition placeholder:text-slate-400 focus:border-violet-400 focus:ring-4 focus:ring-violet-100"
+            className="min-h-24 w-full resize-y rounded-xl border border-slate-200 bg-white px-3 py-2.5 font-mono text-sm outline-none transition placeholder:text-slate-400 focus:border-violet-400 focus:ring-4 focus:ring-violet-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-violet-900"
             placeholder={'{\n  "max_output_tokens": 3000\n}'}
             value={form.advancedJson}
             onChange={(event) => onChange({ advancedJson: event.target.value })}

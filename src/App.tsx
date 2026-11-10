@@ -611,7 +611,7 @@ const handleReuseParams = useCallback((payload: ReuseParamsPayload) => {
 
   return (
 
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_#e0f2fe,_transparent_34rem),linear-gradient(135deg,_#f8fafc,_#eef2ff)] px-4 py-6 text-slate-900 md:px-8">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_#e0f2fe,_transparent_34rem),linear-gradient(135deg,_#f8fafc,_#eef2ff)] px-4 py-6 text-slate-900 dark:bg-[radial-gradient(circle_at_top_left,_#164e63,_transparent_34rem),linear-gradient(135deg,_#0f172a,_#172554)] dark:text-slate-100 md:px-8">
       <div className="mx-auto max-w-7xl">
         <main className="grid gap-6 grid-cols-1 lg:grid-cols-[380px_1fr] lg:grid-rows-[auto_1fr] items-start">
           {/* On desktop the header sits above the output column so the sticky sidebar starts at the top and fits one screen. */}
@@ -638,8 +638,8 @@ const handleReuseParams = useCallback((payload: ReuseParamsPayload) => {
                   aria-pressed={activeMode === mode}
                   className={`rounded-2xl border p-3 text-left transition ${
                     activeMode === mode
-                      ? "border-slate-950 bg-slate-950 text-white shadow-soft"
-                      : "border-white/70 bg-white/75 text-slate-600 backdrop-blur hover:border-slate-300 hover:bg-white hover:text-slate-900"
+                      ? "border-slate-950 bg-slate-950 text-white shadow-soft dark:border-sky-400 dark:bg-sky-500 dark:text-slate-950"
+                      : "border-white/70 bg-white/75 text-slate-600 backdrop-blur hover:border-slate-300 hover:bg-white hover:text-slate-900 dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:bg-slate-700 dark:hover:text-white"
                   }`}
                   onClick={() => setActiveMode(mode)}
                 >
@@ -649,7 +649,7 @@ const handleReuseParams = useCallback((payload: ReuseParamsPayload) => {
                   </span>
                   <span
                     className={`mt-1 block text-[11px] leading-4 ${
-                      activeMode === mode ? "text-slate-300" : "text-slate-400"
+                      activeMode === mode ? "text-slate-300" : "text-slate-400 dark:text-slate-500"
                     }`}
                   >
                     {t(`workspace.modeDescriptions.${mode}`)}
@@ -686,7 +686,7 @@ const handleReuseParams = useCallback((payload: ReuseParamsPayload) => {
           {/* RIGHT COLUMN: PURE GALLERY / OUTPUT PANEL */}
           <div ref={outputRef} className="space-y-6 scroll-mt-6 lg:col-start-2">
             {/* Viewport Select Tab (Tasks vs Library) */}
-            <div className="rounded-2xl border border-white/70 bg-white/75 p-1 shadow-sm backdrop-blur">
+            <div className="rounded-2xl border border-white/70 bg-white/75 p-1 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-800/80">
               <div className="grid grid-cols-2 gap-1">
                 {(["tasks", "library"] as const).map((panel) => {
                   const badge = panel === "tasks" ? activeTaskCount : cacheStats.count;
@@ -698,7 +698,7 @@ const handleReuseParams = useCallback((payload: ReuseParamsPayload) => {
                       className={`flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition ${
                         activePanel === panel
                           ? "bg-slate-950 text-white shadow-sm"
-                          : "text-slate-500 hover:bg-white hover:text-slate-900"
+                          : "text-slate-500 hover:bg-white hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white"
                       }`}
                       onClick={() => setActivePanel(panel)}
                     >
@@ -708,7 +708,7 @@ const handleReuseParams = useCallback((payload: ReuseParamsPayload) => {
                           className={`rounded-full px-1.5 py-0.5 text-[10px] font-bold leading-none ${
                             activePanel === panel
                               ? "bg-white/20 text-white"
-                              : "bg-slate-200 text-slate-600"
+                              : "bg-slate-200 text-slate-600 dark:bg-slate-700 dark:text-slate-300"
                           }`}
                         >
                           {badge}

@@ -165,14 +165,14 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
 
   if (isCollapsed) {
     return (
-      <section className="rounded-3xl border border-white/70 bg-white/85 p-4 shadow-soft backdrop-blur transition-all duration-300">
+      <section className="rounded-3xl border border-white/70 bg-white/85 p-4 shadow-soft backdrop-blur transition-all duration-300 dark:border-slate-700 dark:bg-slate-800">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="text-xl">⚙️</span>
             <div className="min-w-0 flex-1">
               <h2 className="text-sm font-semibold text-slate-950 flex flex-wrap items-center gap-1.5 leading-tight">
                 <span>{t("settings.title")}</span>
-                <span className="inline-block text-[10px] font-normal text-slate-500 bg-slate-100 rounded px-1.5 py-0.5 max-w-[120px] truncate" title={settings.model}>
+                <span className="inline-block max-w-[120px] truncate rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-normal text-slate-500 dark:bg-slate-700 dark:text-slate-300" title={settings.model}>
                   {settings.model || "openai"}
                 </span>
               </h2>
@@ -183,7 +183,7 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
           </div>
           <button
             type="button"
-            className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 shadow-sm"
+            className="rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-600 transition hover:bg-slate-50 shadow-sm dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-700"
             onClick={() => setIsCollapsed(false)}
           >
             {t("settings.edit")}
@@ -194,7 +194,7 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
   }
 
   return (
-    <section className="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-soft backdrop-blur">
+    <section className="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-soft backdrop-blur dark:border-slate-700 dark:bg-slate-800">
       <div className="mb-5 flex items-start justify-between gap-4">
         <div>
           <h2 className="text-lg font-semibold text-slate-950">{t("settings.title")}</h2>
@@ -203,7 +203,7 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
         <div className="flex gap-1.5">
           <button
             type="button"
-            className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:bg-slate-50"
+            className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:bg-slate-50 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700"
             onClick={onReset}
           >
             {t("settings.reset")}
@@ -211,7 +211,7 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
           {settings.apiKey.trim() && (
             <button
               type="button"
-              className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:bg-slate-50"
+              className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:bg-slate-50 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700"
               onClick={() => setIsCollapsed(true)}
             >
               {t("settings.fold")}
@@ -230,7 +230,7 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
               <button
                 key={preset.name}
                 type="button"
-                className="rounded-xl border border-slate-200 bg-white p-3 text-left transition hover:border-sky-300 hover:bg-sky-50"
+                className="rounded-xl border border-slate-200 bg-white p-3 text-left transition hover:border-sky-300 hover:bg-sky-50 dark:border-slate-600 dark:bg-slate-900 dark:hover:bg-slate-700"
                 onClick={() => onChange(preset.settings)}
               >
                 <span className="block text-sm font-semibold text-slate-800">{preset.name}</span>
@@ -244,7 +244,7 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
         <label className="block">
           <span className="mb-1.5 block text-sm font-medium text-slate-700">{t("settings.apiBaseUrl")}</span>
           <input
-            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-sky-900"
             placeholder="https://api.openai.com/v1"
             value={settings.baseUrl}
             onChange={(event) => onChange({ baseUrl: event.target.value })}
@@ -254,7 +254,7 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
         <label className="block">
           <span className="mb-1.5 block text-sm font-medium text-slate-700">{t("settings.apiKey")}</span>
           <input
-            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-sky-900"
             type="password"
             placeholder="sk-..."
             autoComplete="off"
@@ -268,7 +268,7 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
             <span className="text-sm font-medium text-slate-700">{t("settings.model")}</span>
             <div className="flex items-center gap-2">
               <select
-                className="rounded-md border border-slate-200 bg-white px-2 py-1 text-xs font-medium text-slate-600 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
+                className="rounded-md border border-slate-200 bg-white px-2 py-1 text-xs font-medium text-slate-600 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300 dark:focus:ring-sky-900"
                 value={modelFilter}
                 onChange={(event) => setModelFilter(event.target.value as ModelFilter)}
               >
@@ -294,7 +294,7 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
           </div>
           <input
             list={datalistId}
-            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-slate-400 focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-sky-900"
             placeholder="gpt-image-1 or gpt-4o-image"
             value={settings.model}
             onChange={(event) => onChange({ model: event.target.value })}
@@ -366,7 +366,7 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
           </span>
           <select
 
-            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:focus:ring-sky-900"
             value={settings.responseFormat}
             onChange={(event) =>
               onChange({ responseFormat: event.target.value as ImageResponseFormat })
@@ -382,7 +382,7 @@ export const SettingsPanel = memo(function SettingsPanel({ settings, onChange, o
             {t("settings.concurrency")}
           </span>
           <input
-            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+            className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100 dark:focus:ring-sky-900"
             type="number"
             min={1}
             max={10}

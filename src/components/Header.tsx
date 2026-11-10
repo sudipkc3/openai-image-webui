@@ -12,21 +12,21 @@ export function Header({ taskCount, onClearTasks, isDarkMode, onToggleDarkMode }
   const { t } = useTranslation();
 
   return (
-    <header className="flex flex-col gap-4 rounded-3xl border border-white/60 bg-white/80 p-6 shadow-soft backdrop-blur md:flex-row md:items-center md:justify-between">
+    <header className="flex flex-col gap-4 rounded-3xl border border-white/60 bg-white/80 p-6 shadow-soft backdrop-blur dark:border-slate-700 dark:bg-slate-900/80 md:flex-row md:items-center md:justify-between">
       <div>
         <div className="mb-2 inline-flex rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">
           {t("header.badge")}
         </div>
-        <h1 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight text-slate-950 dark:text-white md:text-4xl">
           {t("header.title")}
         </h1>
-        <p className="mt-2 max-w-2xl text-sm text-slate-600 md:text-base">
+        <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-300 md:text-base">
           {t("header.subtitle")}
         </p>
       </div>
       <div className="flex flex-wrap gap-3">
         <button
-          className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+          className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
           type="button"
           onClick={onToggleDarkMode}
           aria-pressed={isDarkMode}
@@ -45,7 +45,7 @@ export function Header({ taskCount, onClearTasks, isDarkMode, onToggleDarkMode }
         </a>
         <LanguageSwitcher />
         <button
-          className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-700 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-slate-200 disabled:hover:bg-white disabled:hover:text-slate-700"
+          className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-rose-300 hover:bg-rose-50 hover:text-rose-700 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-slate-200 disabled:hover:bg-white disabled:hover:text-slate-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:disabled:hover:bg-slate-800"
           type="button"
           onClick={() => window.confirm(t("header.clearTasksConfirm")) && onClearTasks()}
           disabled={taskCount === 0}

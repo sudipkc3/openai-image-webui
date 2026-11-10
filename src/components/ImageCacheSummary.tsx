@@ -34,7 +34,7 @@ export function ImageCacheSummary({ stats, onClear }: ImageCacheSummaryProps) {
   return (
     <div
       className={`rounded-2xl border px-4 py-3 text-sm ${
-        stats.overWarning ? "border-amber-200 bg-amber-50 text-amber-800" : "border-slate-200 bg-slate-50 text-slate-600"
+        stats.overWarning ? "border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200" : "border-slate-200 bg-slate-50 text-slate-600 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-300"
       }`}
     >
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -50,7 +50,7 @@ export function ImageCacheSummary({ stats, onClear }: ImageCacheSummaryProps) {
         </div>
         <button
           type="button"
-          className="self-start rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:text-slate-300"
+          className="self-start rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:text-slate-300 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
           disabled={stats.count <= 0}
           onClick={handleClear}
         >

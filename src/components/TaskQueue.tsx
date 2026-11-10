@@ -54,25 +54,25 @@ export const TaskQueue = memo(function TaskQueue({
   );
 
   return (
-    <section className="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-soft backdrop-blur">
+    <section className="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-soft backdrop-blur dark:border-slate-700 dark:bg-slate-800">
       <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 className="text-lg font-semibold text-slate-950">{t("tasks.title")}</h2>
           <p className="mt-1 text-sm text-slate-500">{t("tasks.stats", stats)}</p>
         </div>
-        <div className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500">
+        <div className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500 dark:bg-slate-700 dark:text-slate-300">
           {t("tasks.total", { count: tasks.length })}
         </div>
       </div>
 
       {hiddenCount > 0 ? (
-        <div className="mb-5 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-500">
+        <div className="mb-5 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-400">
           {t("tasks.showingRecent", { shown: visibleCount, hidden: hiddenCount })}
         </div>
       ) : null}
 
       {groups.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-6 py-14 text-center text-sm text-slate-500">
+        <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-6 py-14 text-center text-sm text-slate-500 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-400">
           {t("tasks.empty")}
         </div>
       ) : (
