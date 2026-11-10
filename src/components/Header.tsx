@@ -30,13 +30,13 @@ export function Header({ taskCount, onClearTasks, isDarkMode, onToggleDarkMode }
           type="button"
           onClick={onToggleDarkMode}
           aria-pressed={isDarkMode}
-          aria-label={isDarkMode ? t("header.lightMode") : t("header.darkMode")}
+          aria-label={isDarkMode ? t("header.darkMode") : t("header.lightMode")}
         >
           <span aria-hidden="true" className="mr-2 text-base">{isDarkMode ? "☀" : "☾"}</span>
-          {isDarkMode ? t("header.lightMode") : t("header.darkMode")}
+          {isDarkMode ? t("header.darkMode") : t("header.lightMode")}
         </button>
         <a
-          className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+          className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
           href="https://github.com/tobenot/openai-image-webui"
           target="_blank"
           rel="noreferrer"
