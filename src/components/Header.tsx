@@ -4,9 +4,11 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 interface HeaderProps {
   taskCount: number;
   onClearTasks: () => void;
+  isDarkMode: boolean;
+  onToggleDarkMode: () => void;
 }
 
-export function Header({ taskCount, onClearTasks }: HeaderProps) {
+export function Header({ taskCount, onClearTasks, isDarkMode, onToggleDarkMode }: HeaderProps) {
   const { t } = useTranslation();
 
   return (
@@ -23,6 +25,16 @@ export function Header({ taskCount, onClearTasks }: HeaderProps) {
         </p>
       </div>
       <div className="flex flex-wrap gap-3">
+        <button
+          className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
+          type="button"
+          onClick={onToggleDarkMode}
+          aria-pressed={isDarkMode}
+          aria-label={isDarkMode ? t("header.lightMode") : t("header.darkMode")}
+        >
+          <span aria-hidden="true" className="mr-2 text-base">{isDarkMode ? "☀" : "☾"}</span>
+          {isDarkMode ? t("header.lightMode") : t("header.darkMode")}
+        </button>
         <a
           className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
           href="https://github.com/tobenot/openai-image-webui"

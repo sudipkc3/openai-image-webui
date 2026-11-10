@@ -141,6 +141,13 @@ function makeInputImageFile(file: File, width = 0, height = 0): InputImageFile {
 export default function App() {
   const { i18n, t } = useTranslation();
   const { settings, setSettings, resetSettings } = useSettings();
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem("openai-image-webui:theme") === "dark";
+    } catch {
+      return false;
+    }
+  });
   const [form, setForm] = useState<GenerateFormState>(DEFAULT_FORM);
   const [visionForm, setVisionForm] = useState<VisionFormState>(DEFAULT_VISION_FORM);
   const [batchForm, setBatchForm] = useState<BatchFormState>(() => ({
@@ -175,6 +182,16 @@ export default function App() {
   const [activePanel, setActivePanel] = useState<WorkspacePanel>("tasks");
   const [activeMode, setActiveMode] = useState<WorkspaceMode>("generate");
   const outputRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDarkMode);
+    document.documentElement.style.colorScheme = isDarkMode ? "dark" : "light";
+    try {
+      localStorage.setItem("openai-image-webui:theme", isDarkMode ? "dark" : "light");
+    } catch {
+      // Keep the selected theme for this session when storage is unavailable.
+    }
+  }, [isDarkMode]);
 
   // On mobile the output sits far below the form, and on desktop a long task list can scroll it away.
   const showOutput = useCallback(() => {
@@ -599,7 +616,12 @@ const handleReuseParams = useCallback((payload: ReuseParamsPayload) => {
         <main className="grid gap-6 grid-cols-1 lg:grid-cols-[380px_1fr] lg:grid-rows-[auto_1fr] items-start">
           {/* On desktop the header sits above the output column so the sticky sidebar starts at the top and fits one screen. */}
           <div className="space-y-4 lg:col-start-2">
-            <Header taskCount={tasks.length} onClearTasks={clearTasks} />
+            <Header
+              taskCount={tasks.length}
+              onClearTasks={clearTasks}
+              isDarkMode={isDarkMode}
+              onToggleDarkMode={() => setIsDarkMode((current) => !current)}
+            />
             <StorageHealthBanner />
           </div>
 
